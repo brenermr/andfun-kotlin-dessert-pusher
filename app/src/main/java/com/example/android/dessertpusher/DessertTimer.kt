@@ -17,6 +17,7 @@
 package com.example.android.dessertpusher
 
 import android.os.Handler
+import android.widget.Toast
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -80,5 +81,9 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
         // Removes all pending posts of runnable from the handler's queue, effectively stopping the
         // timer
         handler.removeCallbacks(runnable)
+    }
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    fun toastMessage(){
+        Timber.i("Olá OnResume DessertTimer")
     }
 }

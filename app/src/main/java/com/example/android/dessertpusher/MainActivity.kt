@@ -18,6 +18,8 @@ package com.example.android.dessertpusher
 
 import android.content.ActivityNotFoundException
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -172,6 +174,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     /**
      * Called when the user navigates away from the app but might come back
      */
+
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putInt(KEY_REVENUE, revenue)
         outState.putInt(KEY_DESSERT_SOLD, dessertsSold)
@@ -180,6 +183,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         super.onSaveInstanceState(outState)
     }
 
+
+
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         Timber.i("onRestoreInstanceState Called")
@@ -187,8 +192,9 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     /** Lifecycle Methods **/
     override fun onStart() {
+        dessertTimer.startTimer()
         super.onStart()
-        Timber.i("onStart Called")
+        Timber.i("OnStart Calling")
     }
 
     override fun onResume() {
@@ -202,6 +208,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     }
 
     override fun onStop() {
+//        dessertTimer.stopTimer()
         super.onStop()
         Timber.i("onStop Called")
     }
