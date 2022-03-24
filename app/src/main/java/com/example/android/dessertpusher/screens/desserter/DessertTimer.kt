@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.dessertpusher
+package com.example.android.dessertpusher.screens.desserter
 
 import android.os.Handler
 import android.widget.Toast
@@ -82,7 +82,7 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
         // timer
         handler.removeCallbacks(runnable)
     }
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun toastMessage(){
         Timber.i("Olá OnResume DessertTimer")
     }

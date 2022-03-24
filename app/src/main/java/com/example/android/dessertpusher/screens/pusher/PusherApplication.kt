@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.dessertpusher
+package com.example.android.dessertpusher.screens.pusher
 
 import android.app.Application
 import timber.log.Timber
